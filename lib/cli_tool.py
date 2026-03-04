@@ -8,10 +8,10 @@ users = {}
 
 # TODO: Implement function to add a task for a user
 def add_task(args):
-    # - Check if the user exists, if not, create one
-    # - Create a new Task with the given title
-    # - Add the task to the user's task list
-    pass
+    user = users.get(args.user) or User(args.user)
+    users[args.user] = user
+    task = Task(args.title)
+    user.add_task(task)
 
 # TODO: Implement function to mark a task as complete
 def complete_task(args):
