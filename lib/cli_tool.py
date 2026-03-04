@@ -25,7 +25,7 @@ def complete_task(args):
     else:
         print(f"❌ User '{args.user}' not found.")
  
-# CLI entry point
+# CLI entry point 
 def main():
     parser = argparse.ArgumentParser(description="Task Manager CLI")
     subparsers = parser.add_subparsers()
