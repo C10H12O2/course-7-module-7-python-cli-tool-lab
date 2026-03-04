@@ -15,12 +15,16 @@ def add_task(args):
 
 # TODO: Implement function to mark a task as complete
 def complete_task(args):
-    # - Look up the user by name
-    # - Look up the task by title
-    # - Mark the task as complete
-    # - Print appropriate error messages if not found
-    pass
-
+    user = users.get(args.user)
+    if user:
+        for task in user.tasks:
+            if task.title == args.title:
+                task.complete()
+                return
+        print(f"❌ Task '{args.title}' not found for user '{args.user}'.")
+    else:
+        print(f"❌ User '{args.user}' not found.")
+ 
 # CLI entry point
 def main():
     parser = argparse.ArgumentParser(description="Task Manager CLI")
